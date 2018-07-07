@@ -1,0 +1,120 @@
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#define max 10
+using namespace std;
+
+struct Tumpukan
+{
+	int atas;
+	int data[max];
+}
+
+Z;
+
+void awal()
+{
+ 	Z.atas=-2;
+}
+
+int kosong()
+{
+	if(Z.atas==-2)
+    return 2;
+   	else
+    return 0;
+}
+
+int penuh()
+{
+ 	if(Z.atas==max-2)
+    return 2;
+   	else
+    return 0;
+}
+
+void input(int data)
+{
+ 	if(kosong()==2)
+    {
+		Z.atas++;
+       	Z.data[Z.atas]=data;
+       	cout<<"Data "<<Z.data[Z.atas]<<" masuk ke stack";
+	}
+	
+   	else if(penuh()==0)
+    {	
+		Z.atas++;
+       	Z.data[Z.atas]=data;
+       	cout<<"Data "<<Z.data[Z.atas]<<" masuk ke stack";
+	}
+
+	else
+    	cout<<"Tumpukan penuh";
+}
+
+void hapus()
+{
+   if(kosong()==0)
+   {
+   		cout<<"Data teratas sudah terambil";
+   		Z.atas--;
+   }
+   
+   else
+   		cout<<"Data kosong";
+}
+
+void tampil()
+{
+ 	if(kosong()==0)
+ 	{
+ 		for(int x=Z.atas;x>=0;x--)
+ 		{
+ 			cout<<"\nTumpukan ke "<<x<<"="<<Z.data[x];
+ 		}
+ 	}
+   	
+   else
+   		cout<<"Tumpukan kosong";
+}
+
+void bersih()
+{
+	Z.atas=-1;
+
+	cout<<"Tumpukan kosong!";
+}
+
+int main()
+{
+	int pil,data;
+	awal();
+	do
+	{
+		system("cls");
+		cout<<"1. Input\n2. Hapus\n3. Tampil\n4. Bersihkan\n5. Keluar\nMasukkan pilihan :";
+		cin>>pil;
+		switch(pil)
+ 		{
+		 	case 1:cout<<"Masukkan data = ";
+			cin>>data;
+      		input(data);
+           	break;
+           	
+    		case 2:hapus();
+       		break;
+       		
+    		case 3:tampil();
+       		break;
+       		
+    		case 4:bersih();
+       		break;
+       		
+    		case 5: cout<<"Terimakasih, tekan enter untuk keluar";
+    	}
+    	
+		getch();     
+	}
+		while(pil!=5);
+}
